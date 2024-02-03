@@ -104,44 +104,48 @@ plt.show()
 
 
 # Plot actual vs predicted values for the training set
-fig, ax = plt.subplots(figsize=(45, 30))
-ax.plot(train.index[:len(trainPredict)], trainY, label='Actual', linewidth=1.2)  # 使用整个 trainY 数组
-ax.plot(train.index[:len(trainPredict)], trainPredict, label='Predicted', linewidth=1.2)  # 使用整个 trainPredict 数组
+fig, ax = plt.subplots(figsize=(65, 20))
+ax.plot(train.index[:len(trainPredict)], trainY, label='Actual', linewidth=1.5)
+ax.plot(train.index[:len(trainPredict)], trainPredict, label='Predicted', linewidth=1.5)
 format_xaxis_12h(ax, train)
 plt.title('Train Set: Actual vs Predicted', fontsize=35)
 plt.xlabel('Time', fontsize=30)
 plt.ylabel('Flow', fontsize=30)
-plt.legend(fontsize=25)
-ax.tick_params(axis='x', labelsize=20)
-plt.savefig('../Graphics/CNN_Train_Set_Actual_vs_Predicted.png')
+plt.legend(fontsize=30)
+plt.grid(True)
+ax.tick_params(axis='x', labelsize=30)
+plt.yticks(fontsize=30)
+plt.savefig('results/Train_Test_Prediction_Graphics/CNN_Train_Set_Actual_vs_Predicted.png')
 plt.show()
 
 # Plot actual vs predicted values for the test set
-fig, ax = plt.subplots(figsize=(45, 30))
-ax.plot(test.index[:len(testPredict)], testY, label='Actual', linewidth=1.2)  # 使用整个 testY 数组
-ax.plot(test.index[:len(testPredict)], testPredict, label='Predicted', linewidth=1.2)  # 使用整个 testPredict 数组
+fig, ax = plt.subplots(figsize=(65, 20))
+ax.plot(test.index[:len(testPredict)], testY, label='Actual', linewidth=1.5)
+ax.plot(test.index[:len(testPredict)], testPredict, label='Predicted',  linewidth=1.5)
 format_xaxis_12h(ax, test)
 plt.title('Test Set: Actual vs Predicted', fontsize=35)
 plt.xlabel('Time', fontsize=30)
 plt.ylabel('Flow', fontsize=30)
-plt.legend(fontsize=25)
-ax.tick_params(axis='x', labelsize=20)
-plt.savefig('../Graphics/CNN_Test_Set_Actual_vs_Predicted.png')
+plt.grid(True)
+plt.legend(fontsize=30)
+ax.tick_params(axis='x', labelsize=30)
+plt.yticks(fontsize=30)
+plt.savefig('results/Train_Test_Prediction_Graphics/CNN_Test_Set_Actual_vs_Predicted.png')
 plt.show()
-testPredict = testPredict.flatten()  # 压平 testPredict 以匹配 testY
-testY = testY.flatten()              # 压平 testY 以匹配 testPredict
+testPredict = testPredict.flatten()
+testY = testY.flatten()
 
-# 获取长度
+# get length
 length = min(len(testPredict), len(testY), len(test.index))
 
 results = pd.DataFrame({
-    'datetime': test.index[:length],  # 使用相同长度的索引
-    'actual': testY[:length],         # 确保长度相同
-    'predicted': testPredict[:length] # 确保长度相同
+    'datetime': test.index[:length],
+    'actual': testY[:length],
+    'predicted': testPredict[:length]
 })
 
 
 # output
-results.to_csv('../data/Results/CNN_Test_Set_Predictions.csv')
+results.to_csv('results/Train_Test_Prediction_data/CNN_Test_Set_Predictions.csv')
 
-print("Test set predictions saved to '../data/Results/CNN_Test_Set_Predictions.csv'")
+print("Test set predictions saved to 'results/Train_Test_Prediction_data/CNN_Test_Set_Predictions.csv'")

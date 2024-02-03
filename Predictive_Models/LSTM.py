@@ -105,41 +105,45 @@ plt.show()
 
 
 # Plot actual vs predicted values for the training set
-fig, ax = plt.subplots(figsize=(45, 30))
-ax.plot(train.index[:len(trainPredict)], trainY[0], label='Actual', linewidth=1.2)
-ax.plot(train.index[:len(trainPredict)], trainPredict[:, 0], label='Predicted', linewidth=1.2)
+fig, ax = plt.subplots(figsize=(65, 30))
+ax.plot(train.index[:len(trainPredict)], trainY[0], label='Actual', linewidth=1.5)
+ax.plot(train.index[:len(trainPredict)], trainPredict[:, 0], label='Predicted', linewidth=1.5)
 format_xaxis_12h(ax, train)
 plt.title('Train Set: Actual vs Predicted', fontsize=35)
 plt.xlabel('Time', fontsize=30)
 plt.ylabel('Flow', fontsize=30)
-plt.legend(fontsize=25)
-ax.tick_params(axis='x', labelsize=20)
-plt.savefig('../Graphics/LSTM_Train_Set_Actual_vs_Predicted.png')
+plt.legend(fontsize=30)
+plt.grid(True)
+ax.tick_params(axis='x', labelsize=30)
+plt.yticks(fontsize=30)
+plt.savefig('results/Train_Test_Prediction_Graphics/LSTM_Train_Set_Actual_vs_Predicted.png')
 plt.show()
 
 # Plot actual vs predicted values for the test set
-fig, ax = plt.subplots(figsize=(45, 30))
-ax.plot(test.index[:len(testPredict)], testY[0], label='Actual', linewidth=1.2)
-ax.plot(test.index[:len(testPredict)], testPredict[:, 0], label='Predicted', linewidth=1.2)
+fig, ax = plt.subplots(figsize=(65, 30))
+ax.plot(test.index[:len(testPredict)], testY[0], label='Actual', linewidth=1.5)
+ax.plot(test.index[:len(testPredict)], testPredict[:, 0], label='Predicted', linewidth=1.5)
 format_xaxis_12h(ax, test)
 plt.title('Test Set: Actual vs Predicted', fontsize=35)
 plt.xlabel('Time', fontsize=30)
 plt.ylabel('Flow', fontsize=30)
-plt.legend(fontsize=25)
-ax.tick_params(axis='x', labelsize=20)
-plt.savefig('../Graphics/LSTM_Test_Set_Actual_vs_Predicted.png')
+plt.legend(fontsize=30)
+plt.grid(True)
+ax.tick_params(axis='x', labelsize=30)
+plt.yticks(fontsize=30)
+plt.savefig('results/Train_Test_Prediction_Graphics/LSTM_Test_Set_Actual_vs_Predicted.png')
 plt.show()
 
 # new DataFrame
 results = pd.DataFrame({
-    'datetime': test.index[:len(testPredict)],  # 时间索引
-    'actual': testY[0],                         # 实际值
-    'predicted': testPredict[:, 0]              # 预测值
+    'datetime': test.index[:len(testPredict)],
+    'actual': testY[0],
+    'predicted': testPredict[:, 0]
 })
 
 results.set_index('datetime', inplace=True)
 
 # output
-results.to_csv('../data/Results/LSTM_Test_Set_Predictions.csv')
+results.to_csv('results/Train_Test_Prediction_data/LSTM_Test_Set_Predictions.csv')
 
-print("Test set predictions saved to '../data/Results/LSTM_Test_Set_Predictions.csv'")
+print("Test set predictions saved to 'results/Train_Test_Prediction_data/LSTM_Test_Set_Predictions.csv'")
