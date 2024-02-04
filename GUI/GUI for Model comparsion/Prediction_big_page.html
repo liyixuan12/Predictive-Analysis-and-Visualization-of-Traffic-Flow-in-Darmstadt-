@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Prediction of Models for Darmstadt Traffic Flow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        section {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>The Prediction of Models for Darmstadt Traffic Flow</h1>
+</header>
+
+<nav>
+    <a onclick="loadContent('CNN_Page.html')">CNN Model</a>
+    <a onclick="loadContent('RNN_pages.html')">RNN-LSTM Model</a>
+    <a onclick="loadContent('2_Model_page.html')">2 Model Comparison</a>
+</nav>
+
+<section id="content">
+    <!-- Content from the clicked button will be loaded here -->
+</section>
+
+<script>
+    function loadContent(page) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("content").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", page, true);
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>
