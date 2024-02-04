@@ -15,20 +15,20 @@ Predictive Analysis and Visualization of Traffic Flow in Darmstadt/
 │   │   │   ├── K1D43_data_period_1.csv: K1D43 data for a specific time period.  
 │   │   │   ├── K1D43_data_period_2.csv: K1D43 data for a specific time period.    
 │   │   │   └── K1D43_data_period_3.csv: K1D43 data for a specific time period.  
-│   │   └── GUI/ 
+│   │   └── GUI/  
 │   │   │   ├── processed_location_data.csv: Processed data used in the GUI for location-based analysis.  
-│   │   │   ├── Darmstadt_Roads_Detid_Data.csv: Detailed road data for Darmstadt city. 
-│   └── raw/  
+│   │   │   ├── Darmstadt_Roads_Detid_Data.csv: Detailed road data for Darmstadt city.   
+│   └── raw/    
 │       ├── detectors_darmstadt_data.csv: Raw data from traffic detectors in Darmstadt.  
 │       └── darmstadt_data.csv: Comprehensive raw dataset for Darmstadt city.  
 ├── Predictive_Models/  
 │   ├── CNN.py: Python script for the Convolutional Neural Network model.    
 │   ├── LSTM_tuner.py: Script for tuning LSTM model parameters.    
 │   ├── LSTM.py: Script implementing the Long Short-Term Memory model.    
-│   └── Arima.py: Implementation of the ARIMA model for time-series prediction.
+│   └── Arima.py: Implementation of the ARIMA model for time-series prediction.  
 │   ├── multiple_step_mode/  
 │   │   ├── CNN_multiple_step.py: CNN model adapted for multiple-step prediction.  
-│   │   ├── LSTM_multiple_step.py: LSTM model for multi-step forecasting.  
+│   │   ├── LSTM_multiple_step.py: LSTM model for multi-step forecasting.    
 │   │   ├── multiple_steps_comparison.ipynb: Notebook for comparing different multi-step models.  
 ├── results/  
 │   ├── results_show.ipynb: Notebook displaying the results of the predictive models.  
