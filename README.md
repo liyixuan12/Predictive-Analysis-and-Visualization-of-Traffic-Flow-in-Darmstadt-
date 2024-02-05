@@ -71,13 +71,20 @@ Predictive Analysis and Visualization of Traffic Flow in Darmstadt/
 
 ![image](https://github.com/liyixuan12/TrafficPredictionFlow/assets/98014565/07a8f1dc-4145-4807-8445-91e0b9e028d7)
 
-## Experiment Results
-
+## 2.5 Experiment Results
+### Prediction Result
 <img width="1468" alt="image" src="https://github.com/liyixuan12/TrafficPredictionFlow/assets/98014565/c7c5af88-30e9-47ce-a498-5f4b880323e2">
 
 The comparison graph of the two models for the prediction results is shown above.   
 
 CNN: Train RMSE: 105.66 Test RMSE: 107.11  
-LSTM: Train RMSE: 107.36 Test RMSE: 108.07  
+LSTM: Train RMSE: 107.36 Test RMSE: 108.07 
+### Traffic Density Map of Darmstadt
+<img width="1560" alt="image" src="https://github.com/liyixuan12/Predictive-Analysis-and-Visualization-of-Traffic-Flow-in-Darmstadt-PAaV/assets/98014565/9b4e6c32-06a5-424b-b116-73d43059f8f0">
+
+
+## Data Science Canvas
+<img width="1224" alt="image" src="https://github.com/liyixuan12/Predictive-Analysis-and-Visualization-of-Traffic-Flow-in-Darmstadt-PAaV/assets/98014565/134a2ea1-3d22-400b-bb23-54abd4f6a3e6">
+
 
 
