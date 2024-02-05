@@ -84,7 +84,9 @@ LSTM: Train RMSE: 107.36 Test RMSE: 108.07
 
 
 ## Data Science Canvas
-<img width="1224" alt="image" src="https://github.com/liyixuan12/Predictive-Analysis-and-Visualization-of-Traffic-Flow-in-Darmstadt-PAaV/assets/98014565/134a2ea1-3d22-400b-bb23-54abd4f6a3e6">
+<img width="1044" alt="image" src="https://github.com/liyixuan12/Predictive-Analysis-and-Visualization-of-Traffic-Flow-in-Darmstadt-PAaV/assets/98014565/c9a3d842-f853-413f-a32c-0f66c0db0328">
+
+
 
 
 
