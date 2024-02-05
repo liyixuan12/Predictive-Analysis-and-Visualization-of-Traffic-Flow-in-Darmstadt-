@@ -3,8 +3,28 @@
 ### Abstract:
 Our work: PAaV - TF Darmstadt, analyzes traffic data for Darmstadt from the world's largest city comparison study UTD19.
 Based on sensor-based traffic flow and geospatial data, we present time series prediction methods as well as visualization and analysis of geospatial data to evaluate tools that can help urban planners to solve road capacity planning problems while maintaining cities as livable spaces.
-## 1. Introduction to the project structure
-### Detailed Structure
+## 1. Technology Stack
+**Python 3.9:** The primary programming language used.  
+**TensorFlow 2.15.0:** For building deep learning models, particularly with GPU acceleration for improved training efficiency.  
+**Keras 2.15.0:** As a high-level interface to TensorFlow, simplifying the construction and experimentation of neural networks.  
+**Scikit-learn 1.3.2:** Provides a variety of machine learning algorithms for data preprocessing and model evaluation.  
+**Folium 0.15.1:** For creating interactive maps to visually represent and analyze geographical data related to traffic flow.  
+## 2. Introduction to the project structure
+### 2.1 Overall structure
+**Data**
+Contains both raw and preprocessed data.
+Divided into raw and Processed subdirectories.
+**Predictive_Models**
+Houses the implementation of various predictive models including CNN, LSTM, and ARIMA.
+**GUI**
+Offers graphical user interfaces for data display and model comparison.
+Includes functionalities like map displays and data animations.  
+### 2.2 Key Features
+**Data Processing:** Utilizes Filtering_Pipeline.ipynb for cleaning and preprocessing raw traffic data.  
+**Model Implementation:** Implements a variety of predictive models, including deep learning-based models like CNN and LSTM, as well as the traditional ARIMA model.   
+**Results Presentation:** Showcases the results of model training and predictions through notebooks and HTML pages.  
+**Graphical Interface:** Provides an interactive interface for users to explore data and compare models.  
+### 2.3 Detailed Structure
 Predictive Analysis and Visualization of Traffic Flow in Darmstadt/  
 ├── data/  
 │   ├── Filtering_Pipeline.ipynb: Notebook containing the data filtering and preprocessing pipeline.  
@@ -56,22 +76,22 @@ Predictive Analysis and Visualization of Traffic Flow in Darmstadt/
     │   └── Produce_Density_Map.py: Script to generate density maps.  
     └── GUI for Model comparison/  
         └── HTML and image files for comparing different predictive models visually.  
-## 2. Introduction to the code execution process
-### 2.1 Overall Process
+## 3. Introduction to the code execution process
+### 3.1 Overall Process
 ![Flowchart - Page 1 (2)](https://github.com/liyixuan12/TrafficPredictionFlow/assets/98014565/bb5401cc-fe7a-4402-b8a3-d04361e8c01b)
 
-### 2.2 Data Cleaning
+### 3.2 Data Cleaning
 <img width="1258" alt="image" src="https://github.com/liyixuan12/TrafficPredictionFlow/assets/98014565/0cb79f16-4f9e-4d50-a0cc-454e64d0973d">  
 
-### 2.3 Model Training & Evaluation
+### 3.3 Model Training & Evaluation
 
 ![Flowchart - Page 3 (2)](https://github.com/liyixuan12/TrafficPredictionFlow/assets/98014565/61715ac0-21bb-4ebf-8675-648dbbdf5b6f)
 
-### 2.4 GUI Development
+### 3.4 GUI Development
 
 ![image](https://github.com/liyixuan12/TrafficPredictionFlow/assets/98014565/07a8f1dc-4145-4807-8445-91e0b9e028d7)
 
-## 2.5 Experiment Results
+## 4. Experiment Results
 ### Prediction Result
 <img width="1468" alt="image" src="https://github.com/liyixuan12/TrafficPredictionFlow/assets/98014565/c7c5af88-30e9-47ce-a498-5f4b880323e2">
 
@@ -83,10 +103,20 @@ LSTM: Train RMSE: 107.36 Test RMSE: 108.07
 <img width="1560" alt="image" src="https://github.com/liyixuan12/Predictive-Analysis-and-Visualization-of-Traffic-Flow-in-Darmstadt-PAaV/assets/98014565/9b4e6c32-06a5-424b-b116-73d43059f8f0">
 
 
-## Data Science Canvas
+## 5. Project Management
 <img width="1044" alt="image" src="https://github.com/liyixuan12/Predictive-Analysis-and-Visualization-of-Traffic-Flow-in-Darmstadt-PAaV/assets/98014565/c9a3d842-f853-413f-a32c-0f66c0db0328">
 
+## 6. Challenges and Solutions
+**Model Selection and Tuning:** The project involves the use of different types of models to tackle the complex characteristics of traffic data, involving extensive parameter tuning and performance comparisons. Increase generalization of models.   
+**Data Handling:** Faced with large raw datasets, the project implements effective data preprocessing strategies to ensure data quality and efficient model training.  
+**Spatial data analysis:** Extended from time series data to spatial data analysis.   
+**API:** Combining front-end and back-end to do real-time data prediction and can be commercialized.
+## 7. Future Prospects
+Further optimization of the current models to enhance prediction accuracy.  
+Expansion of the dataset to include more regions or longer time frames.  
+Development of more advanced features, such as real-time data processing and prediction.  
 
-
+## 8. Conclusion
+The "TrafficFlowPredict" project successfully demonstrates the feasibility of using various machine learning and deep learning technologies for traffic flow prediction. This project excels not only technically but also offers valuable insights to end-users through user-friendly interfaces. With ongoing development in models and functionalities, this project has the potential to become an important tool in the field of traffic flow analysis and prediction. 
 
 
