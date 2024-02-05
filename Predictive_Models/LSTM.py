@@ -10,13 +10,22 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Load the data
-data1 = pd.read_csv('../data/Processed/K1D43/K1D43_data_period_1.csv', parse_dates=['datetime'], index_col='datetime')
-data2 = pd.read_csv('../data/Processed/K1D43/K1D43_data_period_2.csv', parse_dates=['datetime'], index_col='datetime')
-data3 = pd.read_csv('../data/Processed/K1D43/K1D43_data_period_3.csv', parse_dates=['datetime'], index_col='datetime')
+data = pd.concat([
+    pd.read_csv('../data/Processed/K1D43/K1D43_data_period_1.csv', parse_dates=['datetime'], index_col='datetime'),
+    pd.read_csv('../data/Processed/K1D43/K1D43_data_period_2.csv', parse_dates=['datetime'], index_col='datetime'),
+    pd.read_csv('../data/Processed/K1D43/K1D43_data_period_3.csv', parse_dates=['datetime'], index_col='datetime')
+])
 
-# Combine data1 and data2 to create the training dataset
-train = pd.concat([data1, data2])
-test = data3
+# Select training set (from 2016-04-18 to 2016-04-29)
+train = data.loc['2016-04-18':'2016-04-29']
+
+# Select test set (from 2016-05-02 to 2016-05-04)
+test = data.loc['2016-05-02':'2016-05-04']
+
+# Use the last few days of the training data as the validation set
+# For example, take the last 3 days of the training set as the validation set
+val = train.loc['2016-04-27':]
+train = train.loc[:'2016-04-26']
 
 # Initialize the MinMaxScaler
 scaler = MinMaxScaler(feature_range=(0, 1))
@@ -24,8 +33,10 @@ scaler = MinMaxScaler(feature_range=(0, 1))
 # Fit the scaler on the training data and transform the 'flow' column
 train['flow'] = scaler.fit_transform(train[['flow']])
 
-# Transform the 'flow' column of the test data using the fitted scaler
+# Transform the 'flow' column of the validation and test data using the fitted scaler
+val['flow'] = scaler.transform(val[['flow']])
 test['flow'] = scaler.transform(test[['flow']])
+
 
 # Function to create a supervised learning format dataset
 def create_dataset(dataset, look_back=1):
@@ -39,10 +50,12 @@ def create_dataset(dataset, look_back=1):
 # For example, use data from the past 3 timesteps
 look_back = 3
 trainX, trainY = create_dataset(train.values, look_back)
+valX, valY = create_dataset(val.values, look_back)
 testX, testY = create_dataset(test.values, look_back)
 
 # Reshape into [samples, timesteps, features]
 trainX = np.reshape(trainX, (trainX.shape[0], trainX.shape[1], 1))
+valX = np.reshape(valX, (valX.shape[0], valX.shape[1], 1))
 testX = np.reshape(testX, (testX.shape[0], testX.shape[1], 1))
 
 # Define hyperparameters
@@ -66,10 +79,7 @@ model.compile(loss='mean_squared_error', optimizer=Adam(learning_rate=learning_r
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
 
 # Train the model with early stopping
-history = model.fit(trainX, trainY, validation_data=(testX, testY),
-                    epochs=epochs, batch_size=batch_size,
-                    verbose=2, callbacks=[early_stopping])
-
+history = model.fit(trainX, trainY, epochs=1000, batch_size=64, validation_data=(valX, valY), verbose=2, callbacks=[early_stopping])
 # Make predictions
 trainPredict = model.predict(trainX)
 testPredict = model.predict(testX)
