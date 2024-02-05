@@ -107,8 +107,10 @@ LSTM: Train RMSE: 107.36 Test RMSE: 108.07
 <img width="1044" alt="image" src="https://github.com/liyixuan12/Predictive-Analysis-and-Visualization-of-Traffic-Flow-in-Darmstadt-PAaV/assets/98014565/c9a3d842-f853-413f-a32c-0f66c0db0328">
 
 ## 6. Challenges and Solutions
-**Model Selection and Tuning:** The project involves the use of different types of models to tackle the complex characteristics of traffic data, involving extensive parameter tuning and performance comparisons.  
+**Model Selection and Tuning:** The project involves the use of different types of models to tackle the complex characteristics of traffic data, involving extensive parameter tuning and performance comparisons. Increase generalization of models.   
 **Data Handling:** Faced with large raw datasets, the project implements effective data preprocessing strategies to ensure data quality and efficient model training.
+**Spatial data analysis:** Extended from time series data to spatial data analysis.  
+**API:** Combining front-end and back-end to do real-time data prediction and can be commercialized.
 ## 7. Future Prospects
 Further optimization of the current models to enhance prediction accuracy.  
 Expansion of the dataset to include more regions or longer time frames.  
